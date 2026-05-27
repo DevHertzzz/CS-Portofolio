@@ -69,6 +69,8 @@ These vulnerabilities were found during our vulnerability scanning.
 - Exposed SMB service revealing user data
 - Potential for credential-based attacks due to discovered usernames
 7. Command snippets
+- gobuster [ip_a]
+- nmap --script vuln [ip_a]
 
 **Exploitation:**
 1. Vulnerability identified
@@ -82,7 +84,7 @@ These vulnerabilities were found during our vulnerability scanning.
 - Valid credentials was found
 - Login to the system
 5. Code snippets/payloads
-.
+- hydra [wordlist_directory] [ip_a]
 6. Proof of Concept
 - Successful login to the target system via SSH confirmed initial access.
 
