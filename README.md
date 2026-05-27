@@ -54,30 +54,67 @@ After reading this, you'll see two example projects i've done so far throughtout
 
 **Reconnaissance & Scanning:**
 1. OSINT
-2. Network mapping
-3. Port scanning
-4. Service enumeration
-5. Vulnerability scanning
-6. Command snippets
+- The target was identified as an active host within the controlled network.
+3. Network mapping
+- The target host was confirmed to be reachable and active.
+4. Port scanning
+- Multiple open ports were identified, including : SSH, HTTP, SMB.
+- This indicates a broad attack surface with multiple potential entry points.
+5. Service enumeration
+- SMB enumeration revealed valid usernames and accessible shares.
+- Web enumeration identified hidden directories containing sensitive information.
+6. Vulnerability scanning
+These vulnerabilities were found during our vulnerability scanning.
+- Information disclosure via web directory
+- Exposed SMB service revealing user data
+- Potential for credential-based attacks due to discovered usernames
+7. Command snippets
 
 **Exploitation:**
 1. Vulnerability identified
-2. Exploit chosen
-3. Execution steps
-4. Code snippets/payloads
-5. Proof of Concept
+- Information disclosure via web directory
+- Exposed SMB service revealing user data
+- Potential for credential-based attacks due to discovered usernames
+3. Exploit chosen
+- Bruteforce SSH attack was conducted due to revealed usernames
+4. Execution steps
+- Find the valid credentials
+- Valid credentials was found
+- Login to the system
+5. Code snippets/payloads
+.
+6. Proof of Concept
+- Successful login to the target system via SSH confirmed initial access.
 
 **Post-Exploitation & Privilege Escalation:**
-1. Privilege Escalation Method: 
-2. Execution Steps: 
-3. Tools: 
-4. PoC:
+1. Privilege Escalation Method:
+- Privilege escalation was achieved through misconfigured system permissions and accessible sensitive files.
+3. Execution Steps:
+- Find a vulnerability (outdated service, etc) that leads to privilege escalation
+- Exploit the vulnerability to do privilege escalation
+4. Tools:
+- LinPeas
+5. PoC:
+- Root-level access was successfully obtained, indicating full system compromise.
 
 **Reporting & Finalization:**
 1. Executive Summary
-2. Impact Assessment
-3. Mitigation Recommendation
-4. Lessons Learned
+- The assessment that was done found a few vulnerabilities, including exposed services, information disclosure, and weak credentials. These issues made an attacker gain initial access and escalate privileges, resulting in full system compromise.
+3. Impact Assessment
+- Unauthorized access to system services
+- Exposure of sensitive information
+- Full compromise of the target system
+4. Mitigation Recommendation
+- Enforce strong password policies
+- Disable or secure unnecessary services (e.g., SMB)
+- Restrict access to sensitive web directories
+- Apply least privilege principles
+- Implement monitoring and alerting for brute force attempts
+5. Lessons Learned
+- Proper enumeration is critical in identifying attack vectors
+- Weak credentials still remains as a security risk
+- Misconfigurations can lead to many security breaches
+- A structured methodology improves penetration testing effectiveness
 
 ### **Project 2:MrRobotCTF**
 **Introduction:** On this THM lab, we're given a set of task to do. The task(s) are: to find a wordlist and find your way to get all of the 3 keys. And make sure you're using their local vpn, openVPN but with a modified one. The target on this project is an IP address given by the tryhackme room. Tools used: NMap, enum4linux, Gobuster/dirb/Nikto, Hydra, Burp suite, Reverse Shell, LinPeas.
